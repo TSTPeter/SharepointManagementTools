@@ -1,0 +1,26 @@
+# SharePoint DOCX Optimiser
+
+Cut oversized “Detailed design” Word files, remove SVG bloat, slash storage.
+
+---
+
+## What it does
+* Finds **.docx** files named *Detailed design* above a chosen size  
+* Downloads locally, converts embedded **SVG** images to resized **PNG**  
+* Rewrites relationships inside the file, deletes original SVGs  
+* Uploads the lighter file back, retrying three ways if SharePoint argues  
+* Tracks progress, speed, and writes a full **size-reduction report**  
+* Runs safely in **-TestMode** to process just 5 files
+
+---
+
+## Quick start
+```powershell
+# Dry run
+.\Process-WordDocs.ps1 `
+    -SiteUrl "https://contoso.sharepoint.com/sites/ProjectX" `
+    -LocalTempPath "C:\Temp\DocOptimise" `
+    -ClientId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" `
+    -TenantId "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy" `
+    -UseSearch `
+    -TestMode
