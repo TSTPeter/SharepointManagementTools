@@ -1,0 +1,25 @@
+# SharePoint PPTX Version Cleanup
+
+Shrink heavy **.pptx** version history, free SharePoint storage, accelerate load times.
+
+---
+
+## What it does
+* Finds **.pptx** files in your chosen library  
+* Filters by size and date you set  
+* Keeps the newest **n** versions (default 1) and any from 2024 onward  
+* Deletes older versions with retry logic, throttling guard, and progress bar  
+* Logs every step and writes a space-savings report  
+* Runs safely in **-TestMode** to preview impact
+
+---
+
+## Quick start
+```powershell
+# Dry run (nothing deleted)
+.\Cleanup-PptxVersions.ps1 `
+    -SiteUrl "https://contoso.sharepoint.com/sites/ProjectX" `
+    -LocalTempPath "C:\Temp\PptxCleanup" `
+    -ClientId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" `
+    -TenantId "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy" `
+    -TestMode
